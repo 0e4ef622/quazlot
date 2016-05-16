@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <algorithm>
 
 struct card {
     std::string word;
@@ -32,6 +33,8 @@ int main(int argc, char *argv[]) {
 
     bool loop = true;
     while (loop) {
+
+        random_shuffle(cards.begin(), cards.end());
 
         for (card v : cards ) {
             std::cout << v.def << std::endl;
