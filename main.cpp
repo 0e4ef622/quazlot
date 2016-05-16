@@ -30,16 +30,25 @@ int main(int argc, char *argv[]) {
         cards.push_back(cur);
     }
 
-    for (card v : cards ) {
-        std::cout << v.def << std::endl;
+    bool loop = true;
+    while (loop) {
 
-        std::string answer;
-        getline(std::cin, answer);
+        for (card v : cards ) {
+            std::cout << v.def << std::endl;
 
-        if (stringlower(answer) == stringlower(v.word))
-            std::cout << "Correct" << std::endl << std::endl;
-        else
-            std::cout << "Wrong, the correct answer is " << v.word << std::endl << std::endl;
+            std::string answer;
+            getline(std::cin, answer);
+
+            if (stringlower(answer) == stringlower(v.word))
+                std::cout << "Correct" << std::endl << std::endl;
+            else
+                std::cout << "Wrong, the correct answer is " << v.word << std::endl << std::endl;
+        }
+
+        std::string input;
+        std::cout << "Try again? (y/n) ";
+        getline(std::cin, input);
+        if (tolower(input[0]) != 'y') loop = false;
     }
 
     return 0;
