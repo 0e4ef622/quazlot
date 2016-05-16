@@ -39,10 +39,19 @@ int main(int argc, char *argv[]) {
             std::string answer;
             getline(std::cin, answer);
 
-            if (stringlower(answer) == stringlower(v.word))
+            if (stringlower(answer) == stringlower(v.word)) {
                 std::cout << "Correct" << std::endl << std::endl;
-            else
-                std::cout << "Wrong, the correct answer is " << v.word << std::endl << std::endl;
+            } else {
+                std::cout << "Wrong, the correct answer is " << v.word << std::endl;
+                std::cout << "Type in the correct answer: ";
+
+                getline(std::cin, answer);
+                if (stringlower(answer) != stringlower(v.word))
+                    std::cout << "You had one job..." << std::endl;
+
+                std::cout << std::endl;
+            }
+
         }
 
         std::string input;
