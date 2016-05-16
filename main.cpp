@@ -7,6 +7,11 @@
 struct card {
     std::string word;
     std::string def;
+    int streak;
+
+    bool operator<(const card& x) {
+        return streak < x.streak;
+    }
 };
 
 std::string stringlower(std::string str) {
@@ -34,9 +39,9 @@ int main(int argc, char *argv[]) {
     bool loop = true;
     while (loop) {
 
-        random_shuffle(cards.begin(), cards.end());
+        sort(cards.begin(), cards.end());
 
-        for (card v : cards ) {
+        for (card &v : cards ) {
             std::cout << v.def << std::endl;
 
             std::string answer;
@@ -44,6 +49,7 @@ int main(int argc, char *argv[]) {
 
             if (stringlower(answer) == stringlower(v.word)) {
                 std::cout << "Correct" << std::endl << std::endl;
+                v.streak++;
             } else {
                 std::cout << "Wrong, the correct answer is " << v.word << std::endl;
                 std::cout << "Type in the correct answer: ";
@@ -53,6 +59,7 @@ int main(int argc, char *argv[]) {
                     std::cout << "You had one job..." << std::endl;
 
                 std::cout << std::endl;
+                v.streak = 0;
             }
 
         }
