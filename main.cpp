@@ -23,7 +23,7 @@ std::string stringlower(std::string str) {
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-        std::cout << "filename pl0x" << std::endl;
+        std::cout << "Usage: " << argv[0] << " [cards-file]" << std::endl;
         return 1;
     }
 
