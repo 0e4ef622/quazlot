@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
 
     random_shuffle(cards.begin(), cards.end());
 
+    int num_wrong = 0;
     bool loop = true;
     while (loop) {
 
@@ -53,6 +54,7 @@ int main(int argc, char *argv[]) {
                 std::cout << "Correct" << std::endl << std::endl;
                 v.streak++;
             } else {
+                num_wrong++;
                 std::cout << "Wrong, the correct answer is " << v.word << std::endl;
                 std::cout << "Type in the correct answer: ";
 
@@ -65,6 +67,7 @@ int main(int argc, char *argv[]) {
             }
 
         }
+        std::cout << "You got " << cards.size() - num_wrong << "/" << cards.size() << " correct." << std::endl;
 
         std::string input;
         std::cout << "Try again? (y/n) ";
