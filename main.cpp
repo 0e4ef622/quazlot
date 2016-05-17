@@ -38,9 +38,11 @@ int main(int argc, char *argv[]) {
 
     random_shuffle(cards.begin(), cards.end());
 
-    int num_wrong = 0;
     bool loop = true;
     while (loop) {
+
+        int num_wrong = 0;
+        int failed_one_job = 0;
 
         sort(cards.begin(), cards.end());
 
@@ -59,8 +61,10 @@ int main(int argc, char *argv[]) {
                 std::cout << "Type in the correct answer: ";
 
                 getline(std::cin, answer);
-                if (stringlower(answer) != stringlower(v.word))
+                if (stringlower(answer) != stringlower(v.word)) {
                     std::cout << "You had one job..." << std::endl;
+                    failed_one_job++;
+                }
 
                 std::cout << std::endl;
                 v.streak = 0;
@@ -68,6 +72,19 @@ int main(int argc, char *argv[]) {
 
         }
         std::cout << "You got " << cards.size() - num_wrong << "/" << cards.size() << " correct." << std::endl;
+        if (failed_one_job) {
+            switch (failed_one_job) {
+                case 1:
+                    std::cout << "You failed at copying the answer once -_-" << std::endl;
+                    break;
+                case 2:
+                    std::cout << "You failed at copying the answer twice -_-" << std::endl;
+                    break;
+                default:
+                    std::cout << "You failed at copying the answer " << failed_one_job << " times -_-" << std::endl;
+                    break;
+            }
+        }
 
         std::string input;
         std::cout << "Try again? (y/n) ";
