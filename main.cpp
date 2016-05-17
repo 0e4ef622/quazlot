@@ -36,6 +36,8 @@ int main(int argc, char *argv[]) {
         cards.push_back(cur);
     }
 
+    random_shuffle(cards.begin(), cards.end());
+
     bool loop = true;
     while (loop) {
 
