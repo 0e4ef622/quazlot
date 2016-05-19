@@ -118,7 +118,7 @@ http://xkcd.com/292/
               break;
 
             case '?':
-              std::cout << "y = yes\nd = see definition first\nw = see word first\nn = no\n? = help\n";
+              std::cout << "y = yes\nd = see definition first\nw = see word first\nn = no\n? = help" << std::endl;
               goto http; // this was an terrible idea
 
             default:
