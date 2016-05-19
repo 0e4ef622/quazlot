@@ -109,6 +109,9 @@ http://xkcd.com/292/
         std::cout << "Try again? (y/d/w/n/?) ";
         getline(std::cin, input);
         switch (tolower(input[0])) {
+            case 'y':
+                break;
+
             case 'd':
               word_first = false;
               break;
