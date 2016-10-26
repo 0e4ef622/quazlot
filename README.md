@@ -10,7 +10,7 @@ Compile using `clang++` or `g++` and `-std=c++11`.
 
 
 ## Format of cards file
-On one line is the word, on the next line is the definition. Empty lines are *not* ignored (I need to fix this).
+On one line is the word, on the next line is the definition. Empty lines are *not* ignored (this is a feature, not a bug).
 
 Example:
 
