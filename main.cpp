@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
             std::cout << "No cards-file specified" << std::endl;
         }
     } else {
-        cards_file.open(argv[2]);
+        cards_file.open(argv[1]);
     }
 
     std::vector<card> cards;
